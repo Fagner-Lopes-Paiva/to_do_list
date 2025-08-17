@@ -1,0 +1,118 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d3d3d3;
+}
+section {
+    display: flex;
+    width: 880px;
+}
+h1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+#conteiner_nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+#conteiner_nav > div {
+    gap: 5px;
+}
+#conteiner_nav > div > h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+#conteiner_nav > div > P {
+    color: grey;
+}
+#classificacao {
+    width: 100px;
+    height: 32px;
+    border-radius: 8px;
+    padding: 0 5px;
+}
+#conteiner_de_tarefas {
+    height: 700px;
+}
+.checkbox {
+    accent-color: green;
+    width: 20px;
+    height: 20px;
+}
+#conteiner_de_tarefas > ul > li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 8px;
+    width: 860px;
+    height: 48px;
+    padding: 0 10px 0 10px;
+    margin-bottom: 6px;
+}
+.tarefas > p {
+    font-size: 18px;
+}
+.hora {
+    border: transparent;
+}
+#conteiner_de_tarefas > ul > li > div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+#conteiner_de_tarefas > ul > li > div > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+    border-color: transparent;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+.lixeira {
+    width: 24px;
+    height: 24px;
+}
+#input_de_tarefas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 520px;
+    
+}
+#adicionar_tarefas {
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    width: 500px;
+    height: 50px;
+    border-radius:25px 0 0 25px;
+    border: none;
+    padding-left: 15px;
+}
+#butao_de_adicionar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    height: 52px;
+    width: 52px;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+#butao_de_adicionar > img {
+    width: 24px;
+    height: 24px;
+}

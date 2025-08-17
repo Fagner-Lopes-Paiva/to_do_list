@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>TO-DO list</title>
+</head>
+
+<body>
+    <h1>LISTA DE TAREFAS</h1>
+    <section id="conteiner_nav">
+        <div>
+            <h2>Olá Dev!</h2>
+            <p id="dataEHora">Data</p>
+        </div>
+        <nav>
+            <select name="classificacao" id="classificacao" title="lista">
+                <option value="Todas">Todas</option>
+                <option value="Pendentes">Pendentes</option>
+                <option value="Concluidas">Concluidas</option>
+            </select>
+        </nav>
+    </section>
+    <section id="conteiner_de_tarefas">
+        <ul id="ul">
+            
+        </ul>
+    </section>
+    <audio id="alarme" src="./audio/alarme.mp3"></audio>
+    <section id="input_de_tarefas">
+        <input type="text" title="tarefas" id="adicionar_tarefas" placeholder="+ Criar uma tarefa">
+        <button id="butao_de_adicionar" type="submit"><img src="./asset/icons8-entrar-50.png"
+                alt="Butão de adicionar"></button>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
