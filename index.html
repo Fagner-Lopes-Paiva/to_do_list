@@ -4,37 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Básico -->
+    <meta name="description"
+        content="Aplicação web moderna de To-Do List com agendamento de tarefas, alarme de início e fim, organização inteligente e interface responsiva.">
+    <meta name="keywords"
+        content="to-do list, lista de tarefas, agenda online, alarme de tarefas, produtividade, app web, gerenciamento de tarefas">
+    <meta name="author" content="Fagner Lopes Paiva">
+
+    <!-- estilos da pagina -->
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <title>TO-DO list</title>
+    <link rel="stylesheet" href="midiaQuery.css">
+    <title>To-Do list</title>
 </head>
 
 <body>
-    <h1>LISTA DE TAREFAS</h1>
-    <section id="conteiner_nav">
-        <div>
-            <h2>Olá Dev!</h2>
-            <p id="dataEHora">Data</p>
-        </div>
-        <nav>
-            <select name="classificacao" id="classificacao" title="lista">
-                <option value="Todas">Todas</option>
-                <option value="Pendentes">Pendentes</option>
-                <option value="Concluidas">Concluidas</option>
-            </select>
-        </nav>
-    </section>
-    <section id="conteiner_de_tarefas">
-        <ul id="ul">
-            
-        </ul>
-    </section>
-    <audio id="alarme" src="./audio/alarme.mp3"></audio>
-    <section id="input_de_tarefas">
-        <input type="text" title="tarefas" id="adicionar_tarefas" placeholder="+ Criar uma tarefa">
-        <button id="butao_de_adicionar" type="submit"><img src="./asset/icons8-entrar-50.png"
-                alt="Butão de adicionar"></button>
-    </section>
+    <header>
+        <img class="icone" src="./asset/icons8-relógio-despertador-96.png" alt="imagem do despertador">
+        <h1>To-Do List</h1>
+    </header>
+    <main>
+        <section id="conteiner_nav">
+            <div>
+                <h2>Olá, seja bem-vindo(a) <span id="nome_usuario"></span>!</h2>
+                <p id="dataEHora">Data</p>
+            </div>
+
+            <search>
+                <section class="sesao_input">
+                    <label class="textos_do_input" for="adicionar tarefa">Nova tarefa</label>
+                    <section id="input_de_tarefas">
+                        <input type="text" id="adicionar_tarefas" title="Escreva a tarefa" placeholder="Digite a tarefa...">
+                        <button id="butao_de_adicionar" aria-label="adicionar tarefa" type="submit">+ Adicionar</button>
+                    </section>
+                </section>
+                <section class="sesao_de_hora">
+                    <div class="hora">
+                        <label class="textos_do_input" for="">Inicio</label>
+                        <input title="hora de inicio" type="time" name="inicio" class="inicial" min="00:00" max="23:59" >
+                    </div>
+                    <div class="hora">
+                        <label class="textos_do_input" for="">Fim</label>
+                        <input title="hora de fim" type="time" name="fim" class="final" min="00:00" max="23:59">
+                    </div>
+                    <!-- botão slider -->
+                    <label class="switch">
+                        <input title="acionar alarme" type="checkbox" id="toggle">
+                        <span class="slider"></span>
+                    </label>
+                </section>
+                <section class="sesao_de_informasao" >
+                    <p class="textos_do_input" ><img class="sino_de_notificasao" src="./asset/icons8-sino-de-notificação-96(cor_de_ouro).png" alt="notificação"> Alarme será ativado no inicio e no fim da tarefa</p>
+                </section>
+            </search>
+
+            <section class="sesao_de_classificasao" >
+                <span class="texto_de_tarefas" >Minhas Tarefas</span>
+                <select name="classificacao" id="classificacao" title="lista de classificação">
+                    <option value="Todas">Todas</option>
+                    <option value="Pendentes">Pendentes</option>
+                    <option value="Concluidas">Concluidas</option>
+                </select>
+            </section>
+        </section>
+        <section id="conteiner_de_tarefas">
+            <ul id="ul">
+                <!-- tarefas aqui dentro -->
+            </ul>
+        </section>
+        <audio id="alarme" src="./audio/alarme.mp3"></audio>
+    </main>
     <script src="script.js"></script>
 </body>
 

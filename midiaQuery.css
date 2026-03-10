@@ -1,0 +1,521 @@
+@media (max-width: 1024px) {
+
+    main {
+        max-width: 1024px;
+        height: 432px;
+    }
+
+    header {
+        max-width: 1024px;
+        height: 60px;
+    }
+
+    section {
+        max-width: 1024px;
+    }
+
+    .icone {
+        width: 50px;
+        height: 50px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    #conteiner_nav {
+        max-width: 900px;
+        height: 300px;
+    }
+
+    search {
+        max-width: 900px;
+        height: 160px;
+        margin-block: 10px;
+    }
+
+    #conteiner_de_tarefas {
+        max-width: 750px;
+        height: 100%;
+    }
+
+    .conteiner_tarefa {
+        max-width: 750px;
+        height: 30px;
+    }
+
+    .item_lista {
+        width: 100%;
+        max-width: 750px;
+        height: 50px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .textos_do_input {
+        font-size: 20px;
+    }
+
+    .inicial,
+    .final {
+        width: 100px;
+        height: 30px;
+    }
+
+    #ul {
+        max-width: 800px;
+        height: 100%;
+    }
+
+    .tarefas {
+        max-width: 600px;
+    }
+
+    #input_de_tarefas {
+        max-width: 600px;
+        height: 34px;
+    }
+
+    #butao_de_adicionar {
+        width: 120px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .switch {
+        width: 60px;
+        height: 28px;
+    }
+
+    .slider::before {
+        width: 22px;
+        height: 22px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    main {
+        max-width: 768px;
+    }
+
+    header {
+        max-width: 768px;
+        height: 60px;
+    }
+
+    section {
+        max-width: 768px;
+    }
+
+    .icone {
+        width: 40px;
+        height: 40px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #conteiner_nav {
+        max-width: 768px;
+        height: 300px;
+    }
+
+    search {
+        max-width: 768px;
+        height: 160px;
+        margin-block: 10px;
+    }
+
+    #conteiner_de_tarefas {
+        max-width: 600px;
+    }
+
+    .conteiner_tarefa {
+        max-width: 600px;
+        height: 30px;
+    }
+
+    .item_lista {
+        width: 100%;
+        max-width: 600px;
+        height: 50px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .textos_do_input {
+        font-size: 18px;
+    }
+
+    .inicial,
+    .final {
+        width: 90px;
+        height: 28px;
+    }
+
+    #ul {
+        max-width: 650px;
+        height: 100%;
+    }
+
+    .tarefas {
+        max-width: 500px;
+    }
+
+    #input_de_tarefas {
+        max-width: 500px;
+        height: 32px;
+    }
+
+    #butao_de_adicionar {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .switch {
+        width: 56px;
+        height: 26px;
+    }
+
+    .slider::before {
+        width: 20px;
+        height: 20px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    main {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    header {
+        width: 100%;
+        max-width: 600px;
+        height: 50px;
+    }
+
+    section {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .icone {
+        width: 40px;
+        height: 40px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    #conteiner_nav {
+        width: 100%;
+        max-width: 500px;
+        height: 290px;
+    }
+
+    search {
+        width: 100%;
+        max-width: 500px;
+        height: 160px;
+        margin-block: 10px;
+    }
+
+    #conteiner_de_tarefas {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .conteiner_tarefa {
+        width: 100%;
+        max-width: 600px;
+        height: 30px;
+    }
+
+    .item_lista {
+        width: 100%;
+        max-width: 600px;
+        height: 50px;
+        padding: 0 10px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    .textos_do_input {
+        font-size: 16px;
+    }
+
+    .inicial,
+    .final {
+        width: 90px;
+        height: 26px;
+    }
+
+    #ul {
+        width: 100%;
+        max-width: 600px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tarefas {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .conteiner_de_configurasao {
+        width: 80px;
+    }
+
+    button.btn-play,
+    button.btn_lixeira {
+        width: 32px;
+        height: 32px;
+    }
+
+    .sesao_input {
+        width: 100%;
+        max-width: 440px;
+    }
+
+    #input_de_tarefas {
+        width: 100%;
+        max-width: 440px;
+        height: 30px;
+    }
+
+    #adicionar_tarefas {
+        width: 100%;
+        max-width: 340px;
+        height: 26px;
+    }
+
+    #butao_de_adicionar {
+        width: 95px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .sesao_de_hora {
+        width: 100%;
+        max-width: 440px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    .sesao_de_informasao {
+        width: 100%;
+        max-width: 440px;
+    }
+
+    .sesao_de_classificasao {
+        width: 100%;
+        max-width: 566px;
+    }
+
+    .switch {
+        width: 55px;
+        height: 25px;
+    }
+
+    .slider::before {
+        width: 19px;
+        height: 19px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    main {
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+    }
+
+    header {
+        width: 100%;
+        max-width: 480px;
+        height: 40px;
+    }
+
+    section {
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+    }
+
+    .icone {
+        width: 30px;
+        height: 30px
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #conteiner_nav {
+        width: 100%;
+        max-width: 480px;
+        height: 240px;
+        margin-block: 10px;
+    }
+
+    #conteiner_nav>div>h2 {
+        font-size: 16px;
+    }
+
+    search {
+        width: 100%;
+        max-width: 480px;
+        height: 160px;
+    }
+
+    #classificacao {
+        width: 100px;
+        height: 28px;
+    }
+
+    #conteiner_de_tarefas {
+        width: 100%;
+        max-width: 480px;
+        height: 100%;
+    }
+
+    .conteiner_tarefa {
+        width: 100%;
+        max-width: 480px;
+        height: 30px;
+    }
+
+    .item_lista {
+        width: 100%;
+        max-width: 480px;
+        height: 50px;
+        padding: 0 10px 0 10px;
+        justify-content: space-between;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .textos_do_input {
+        font-size: 14px;
+    }
+
+    .inicial,
+    .final {
+        width: 80px;
+        height: 24px;
+    }
+
+    .inicio_fim {
+        font-size: 13px;
+        height: 15px;
+    }
+
+    #ul {
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center
+    }
+
+    .tarefas {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .conteiner_de_configurasao {
+        width: 70px;
+    }
+
+    button.btn-play,
+    button.btn_lixeira {
+        width: 30px;
+        height: 30px;
+    }
+
+    .sesao_input {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    #input_de_tarefas {
+        width: 100%;
+        max-width: 400px;
+        height: 28px;
+    }
+
+    #adicionar_tarefas {
+        width: 100%;
+        max-width: 300px;
+        height: 24px;
+    }
+
+    #butao_de_adicionar {
+        width: 80px;
+        height: 26px;
+        font-size: 10px;
+    }
+
+    .sesao_de_hora {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    .sesao_de_informasao {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .sino_de_notificasao {
+        width: 16px;
+        height: 16px;
+    }
+
+    .switch {
+        width: 52px;
+        height: 24px;
+    }
+
+    .slider::before {
+        width: 18px;
+        height: 18px;
+    }
+
+    .sesao_de_classificasao {
+        width: 100%;
+        max-width: 480px;
+    }
+
+    .play,
+    .pause,
+    .lixeira {
+        width: 20px;
+        height: 20px;
+    }
+}

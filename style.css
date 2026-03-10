@@ -1,118 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+* {
+    /* outline: 1px solid red; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1280px;
+    height: auto;
     background-color: #d3d3d3;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    max-width: 1280px;
+    height: 60px
+}
+.icone {
+    width: 50px;
+    height: 50px;
 }
 section {
     display: flex;
     width: 880px;
 }
+
 h1 {
-    font-size: 25px;
-    font-weight: bold;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    margin-top: 10px;
+    color: #071022;
 }
+
 #conteiner_nav {
-    flex-direction: row;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     justify-content: space-between;
-    height: 60px;
+    height: 250px;
+    width: 580px;
+    margin-block: 10px;
 }
-#conteiner_nav > div {
+
+#conteiner_nav>div {
     gap: 5px;
 }
-#conteiner_nav > div > h2 {
+
+#conteiner_nav>div>h2 {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
     font-size: 25px;
-    font-weight: bold;
+    color: #071022;
 }
-#conteiner_nav > div > P {
-    color: grey;
+
+#nome_usuario {
+    text-transform: capitalize;
 }
+
+#conteiner_nav>div>P {
+    color: #071022;
+}
+
+search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 580px;
+    height: 160px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #1c2a3e,#20384b, #03b090);
+    gap: 10px;
+}
+
 #classificacao {
     width: 100px;
     height: 32px;
+    border: none;
     border-radius: 8px;
     padding: 0 5px;
 }
+
 #conteiner_de_tarefas {
-    height: 700px;
+    height: 100%;
+    width: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.checkbox {
-    accent-color: green;
-    width: 20px;
-    height: 20px;
+.conteiner_tarefa {
+    width: 560px;
+    height: 37px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5px;
+    border-left: 3px solid #01bb8d;
+    gap: 10px;
 }
-#conteiner_de_tarefas > ul > li {
+
+.item_lista {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     background-color: white;
-    border-radius: 8px;
-    width: 860px;
+    border-radius: 13px;
+    width: 100%;
+    max-width: 580px;
     height: 48px;
     padding: 0 10px 0 10px;
     margin-bottom: 6px;
 }
-.tarefas > p {
+
+p {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
     font-size: 18px;
-}
-.hora {
-    border: transparent;
-}
-#conteiner_de_tarefas > ul > li > div {
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
-#conteiner_de_tarefas > ul > li > div > button {
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.textos_do_input {
+    font-family: "Josefin Sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    align-items: end;
+    color: #f2f2f6;
+}
+
+.inicial,
+.final {
+    border: transparent;
+    bottom: 0px;
+    font-family: "Josefin Sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+
+}
+
+.inicio_fim {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    background-color: #f2f2f6;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 2px;
+    height: 15px;
+}
+.conteiner_hora {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    gap: 15px;
+}
+
+.conteiner_texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+#ul {
+    width: 580px;
+}
+
+.tarefas {
+    width: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 5px
+}
+
+.conteiner_de_configurasao {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 80px;
+    gap: 5px;
+}
+
+button.btn-play, button.btn_lixeira {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #d3d3d3;
-    border-radius: 5px;
+    background-color: #f2f2f6;
+    border-radius: 13px;
     border-color: transparent;
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
 }
-.lixeira {
-    width: 24px;
-    height: 24px;
+
+button.btn_lixeira {
+    background-color: #FAEAEC;
+}
+
+.sesao_input {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 520px;
 }
 #input_de_tarefas {
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-content: center;
-    height: 60px;
+    justify-content: start;
+    height: 30px;
     width: 520px;
-    
+    border: none;
+    gap: 10px;
 }
+
 #adicionar_tarefas {
-    font-size: 18px;
-    background-color: black;
-    color: white;
+    font-size: 14px;
+    background-color: white;
+    color: black;
     width: 500px;
-    height: 50px;
-    border-radius:25px 0 0 25px;
+    height: 30px;
+    border-radius: 7px;
     border: none;
     padding-left: 15px;
 }
+
 #butao_de_adicionar {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    height: 52px;
-    width: 52px;
+    font-size: 14px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    height: 32px;
+    width: 140px;
     border: none;
-    border-radius: 0 25px 25px 0;
-    background-color: black;
+    border-radius: 7px;
+    background-color: #01bb8d;
     color: white;
     cursor: pointer;
 }
-#butao_de_adicionar > img {
+
+.sesao_de_hora {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: flex-start;
+    width: 520px;
+    gap: 10px;
+}
+
+.hora {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.hora_inicial, .hora_final {
+    font-size: 12px;
+    font-family: "Josefin Sans", sans-serif;
+    color: #071022;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 7px;
+    width: auto;
+    height: auto;
+    padding: 3px;
+    border: none;
+}
+
+label {
+    font-size: 14px;
+    font-family: "Josefin Sans", sans-serif;
+    color: #071022;
+    
+}
+
+.sesao_de_informasao {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    width: 520px;
+}
+
+.sino_de_notificasao{
     width: 24px;
     height: 24px;
+}
+
+/* esperimento do botão slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #01bb8d;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+.sesao_de_classificasao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 580px;
+    gap: 10px;
+}
+
+.texto_de_tarefas {
+    font-size: 14px;
+    font-family: "Josefin Sans", sans-serif;
+    color: #071022;
+}
+
+.play, .pause, .lixeira{
+    width: 24px;
+    height: 24px;
+}
+/* botão checkbox */
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-container input {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.check {
+    width: 20px;
+    height: 20px;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+/* Quando estiver marcado */
+.checkbox-container input:checked + .checkmark {
+  background-color: #4CAF50;
+  
+}
+
+/* Bolinha interna */
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked + .checkmark::after {
+  display: block;
+}
+
+.checkbox-container .checkmark::after {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-image: url('./asset/icon/icons8-marca-de-seleção-emoji-96.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
+}
+
+.alarme_inicio_tocado {
+    animation: alertaIniciado 1s infinite;
+    color: #071022;
+}
+
+.alarme_fim_iniciado {
+    animation: alertaTerminado 1s infinite;
+    color: #071022;
+}
+
+.alarme_parado {
+    background-color: white;
+    color: #071022;
+}
+
+.animacao_entrada {
+    animation: aparecerTarefa 0.4s ease;
+}
+
+.animacao_saida {
+    animation: removerTarefa 0.4s forwards;
+}
+
+@keyframes alertaIniciado {
+    0% {
+        background-color: #ffffff;
+        transform: scale(1);
+    }
+    50% {
+        background-color: #01bb8d;
+        transform: scale(1.03);
+    }
+    100% {
+        background-color: #ffffff;
+        transform: scale(1);
+    }
+}
+
+@keyframes alertaTerminado {
+    0% {
+        background-color: #ffffff;
+        transform: scale(1);
+    }
+    50% {
+        background-color: #D44C4F;
+        transform: scale(1.03);
+    }
+    100% {
+        background-color: #ffffff;
+        transform: scale(1);
+    }
+}
+
+@keyframes aparecerTarefa {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+@keyframes removerTarefa {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
 }
