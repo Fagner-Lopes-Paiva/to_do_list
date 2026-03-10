@@ -34,7 +34,7 @@ atualizarRelogio();
 //"fim"
 
 // cria a tarefa em se
-function listarTarefa(texto, horaInicial, horaFinal) {
+function listarTarefa(id, texto, horaInicial, horaFinal) {
     const li = document.createElement('li');
     li.innerHTML = `
         <div class="conteiner_tarefa" >
@@ -63,6 +63,7 @@ function listarTarefa(texto, horaInicial, horaFinal) {
     li.classList.add('animacao_entrada');
     li.setAttribute('data-inicio-tocado', 'false');
     li.setAttribute('data-fim-tocado', 'false');
+    li.dataset.id = id;
 
     setTimeout(() => {
         li.classList.remove('animacao_entrada');
@@ -90,16 +91,23 @@ butaoAdicionar.addEventListener('click', () => {
         const toggle = document.getElementById("toggle");
 
         if (toggle.checked) {
-            console.log(hora);
             return hora === undefined ? '' : hora;
         } else {
             return ''
         }
     }
 
+    const novaTarefa = {
+        id: Date.now(),
+        texto: texto,
+        horaInicial: ativar(horaInicial),
+        horaFinal: ativar(horaFinal),
+        concluida: false
+    }
+
     if (texto !== '') {
-        tarefas.push({ texto: texto, horaInicial: ativar(horaInicial), horaFinal: ativar(horaFinal), concluida: false });
-        listarTarefa(texto, ativar(horaInicial), ativar(horaFinal));
+        tarefas.push(novaTarefa);
+        listarTarefa(novaTarefa.id, novaTarefa.texto, novaTarefa.horaInicial, novaTarefa.horaFinal);
         salvarTarefas();
         inputTarefa.value = '';
         setaHoraInicial.value = '';
@@ -115,18 +123,18 @@ inputTarefa.addEventListener('keydown', (evento) => {
 
 function tocar(botao) {
     if (alarmeAudio.paused) {
-        iniciarAlarme();
+        iniciarAlarme(botao);
     } else {
-        pararAlarme();
+        pararAlarme(botao);
     }
 }
 
-function iniciarAlarme() {
+function iniciarAlarme(botao) {
     alarmeAudio.loop = true;
     alarmeAudio.play();
     botao.innerHTML = '<img class="pause" src="../asset/icon/icons8-sino-de-notificação-96.png" alt="Pausar">';
 }
-function pararAlarme() {
+function pararAlarme(botao) {
     alarmeAudio.pause();
     alarmeAudio.currentTime = 0;
     botao.innerHTML = '<img class="play" src="../asset/icon/icons8-sino-de-notificação-96(copia_normal).png" alt="Reproduzir">';
@@ -173,13 +181,6 @@ inputClassificasao.addEventListener('change', (evento) => {
     }
 })
 
-function converterParaMinutos(hora) {
-    if (!hora || hora === 'Indefinido') return null;
-
-    const [horas, minutos] = hora.split(':');
-    return Number(horas) * 60 + Number(minutos);
-}
-
 // enplementação do alarme inicial
 setInterval(() => {
     if (document.visibilityState !== 'visible') return;
@@ -189,70 +190,68 @@ setInterval(() => {
     let minuto = String(agora.getMinutes()).padStart(2, '0');
     let horaCompletaAtual = `${hora}:${minuto}`;
 
-    const agoraMIn = converterParaMinutos(horaCompletaAtual);
+    // const agoraMIn = null;
 
     // let todasAsTarefas = [...document.querySelectorAll('.item_lista')]
 
     tarefas.forEach(tarefaLi => {
-        const inputInicio = tarefaLi.querySelector('.hora_inicial');
-        const inputFim = tarefaLi.querySelector('.hora_final');
-        let botaoPlay = tarefaLi.querySelector('.btn-play');
+        const li = document.querySelector(`[data-id="${tarefaLi.id}"]`);
+        const botaoPlay = li.querySelector('.btn-play');
 
-        const horaInicial = inputInicio?.textContent.trim();
-        const horaFinal = inputFim?.textContent.trim();
+        if (!li) return;
 
-        if (!horaInicial && !horaFinal) return;
+        const inputInicio = tarefaLi.horaInicial;
+        const inputFim = tarefaLi.horaFinal;
 
-        const inicioMin = converterParaMinutos(horaInicial);
-        const fimMin = converterParaMinutos(horaFinal);
+        if (!inputInicio && !inputFim) return;
 
-        if (inicioMin !== null && tarefaLi.dataset.inicioTocado === 'false' && agoraMIn === inicioMin) {
-            tarefaLi.dataset.inicioTocado = 'true';
+        if (inputInicio !== null && horaCompletaAtual === inputInicio && li.dataset.inicioTocado === 'false') {
+            li.dataset.inicioTocado = 'true';
             console.log('Inicio da tarefa!')
 
             new Notification("⏰ Início da tarefa", {
                 body: "Sua tarefa começou agora!"
             });
 
-            iniciarAlarme();
-            tarefaLi.classList.remove('alarme_parado');
-            tarefaLi.classList.add('alarme_inicio_tocado');
+            iniciarAlarme(botaoPlay);
+            li.classList.remove('alarme_parado');
+            li.classList.add('alarme_inicio_tocado');
 
             setTimeout(() => {
-                pararAlarme();
-                tarefaLi.dataset.inicioTocado = 'false';
-                tarefaLi.classList.remove('alarme_inicio_tocado');
-                tarefaLi.classList.add('alarme_parado');
+                pararAlarme(botaoPlay);
+                li.dataset.inicioTocado = 'false';
+                li.classList.remove('alarme_inicio_tocado');
+                li.classList.add('alarme_parado');
             }, 60000);
 
-        } else if (fimMin !== null && tarefaLi.dataset.fimTocado === 'false' && agoraMIn === fimMin) {
-            tarefaLi.dataset.fimTocado = 'true';
+        } else if (inputFim !== null && horaCompletaAtual === inputFim && li.dataset.fimTocado === 'false') {            
+            li.dataset.fimTocado = 'true';
             console.log('Fim de tarefa!');
 
             new Notification("⏰ Fim da tarefa", {
                 body: "Sua tarefa terminou agora!"
             });
 
-            iniciarAlarme();
-            tarefaLi.classList.remove('alarme_inicio_tocado');
-            tarefaLi.classList.remove('alarme_parado');
-            tarefaLi.classList.add('alarme_fim_iniciado');
+            iniciarAlarme(botaoPlay);
+            li.classList.remove('alarme_inicio_tocado');
+            li.classList.remove('alarme_parado');
+            li.classList.add('alarme_fim_iniciado');
 
             setTimeout(() => {
-                pararAlarme();
-                tarefaLi.dataset.fimTocado = 'false';
-                tarefaLi.classList.remove('alarme_fim_iniciado');
-                tarefaLi.classList.add('alarme_parado');
+                pararAlarme(botaoPlay);
+                li.dataset.fimTocado = 'false';
+                li.classList.remove('alarme_fim_iniciado');
+                li.classList.add('alarme_parado');
             }, 60000);
 
         }
     })
 
-}, 60000)
+}, 1000);
 
 window.addEventListener('DOMContentLoaded', () => {
     tarefas.forEach(tarefa => {
-        listarTarefa(tarefa.texto, tarefa.horaInicial, tarefa.horaFinal);
+        listarTarefa( tarefa.id, tarefa.texto, tarefa.horaInicial, tarefa.horaFinal);
     });
 });
 // enplementação da edição das tarefas listadas
