@@ -13,9 +13,9 @@
     <meta name="author" content="Fagner Lopes Paiva">
 
     <!-- estilos da pagina -->
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="midiaQuery.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/midiaQuery.css">
     <title>To-Do list</title>
 </head>
 
@@ -35,14 +35,15 @@
                 <section class="sesao_input">
                     <label class="textos_do_input" for="adicionar tarefa">Nova tarefa</label>
                     <section id="input_de_tarefas">
-                        <input type="text" id="adicionar_tarefas" title="Escreva a tarefa" placeholder="Digite a tarefa...">
+                        <input type="text" id="adicionar_tarefas" title="Escreva a tarefa"
+                            placeholder="Digite a tarefa...">
                         <button id="butao_de_adicionar" aria-label="adicionar tarefa" type="submit">+ Adicionar</button>
                     </section>
                 </section>
                 <section class="sesao_de_hora">
                     <div class="hora">
                         <label class="textos_do_input" for="">Inicio</label>
-                        <input title="hora de inicio" type="time" name="inicio" class="inicial" min="00:00" max="23:59" >
+                        <input title="hora de inicio" type="time" name="inicio" class="inicial" min="00:00" max="23:59">
                     </div>
                     <div class="hora">
                         <label class="textos_do_input" for="">Fim</label>
@@ -54,13 +55,15 @@
                         <span class="slider"></span>
                     </label>
                 </section>
-                <section class="sesao_de_informasao" >
-                    <p class="textos_do_input" ><img class="sino_de_notificasao" src="./asset/icons8-sino-de-notificação-96(cor_de_ouro).png" alt="notificação"> Alarme será ativado no inicio e no fim da tarefa</p>
+                <section class="sesao_de_informasao">
+                    <p class="textos_do_input"><img class="sino_de_notificasao"
+                            src="./asset/icons8-sino-de-notificação-96(cor_de_ouro).png" alt="notificação"> Alarme será
+                        ativado no inicio e no fim da tarefa</p>
                 </section>
             </search>
 
-            <section class="sesao_de_classificasao" >
-                <span class="texto_de_tarefas" >Minhas Tarefas</span>
+            <section class="sesao_de_classificasao">
+                <span class="texto_de_tarefas">Minhas Tarefas</span>
                 <select name="classificacao" id="classificacao" title="lista de classificação">
                     <option value="Todas">Todas</option>
                     <option value="Pendentes">Pendentes</option>
@@ -75,7 +78,21 @@
         </section>
         <audio id="alarme" src="./audio/alarme.mp3"></audio>
     </main>
-    <script src="script.js"></script>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>To-Do List</h3>
+                <p>Organize suas tarefas e aumente sua produtividade.</p>
+            </div>
+        </div>
+        <p class="footer-copy">
+            © 2026 Fagner Lopes • Projeto de estudo
+        </p>
+    </footer>
+    <script type="module" src="./javascript/main.js"></script>
+    <script type="module" src="./javascript/alarme.js" ></script>
+    <script type="module" src="./javascript/tarefas.js" ></script>
+    <script type="module" src="./javascript/relogio.js" ></script>
 </body>
 
 </html>

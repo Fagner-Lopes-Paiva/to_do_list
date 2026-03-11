@@ -20,8 +20,10 @@ main {
     justify-content: center;
     width: 100%;
     max-width: 1280px;
-    height: auto;
+    height: 100%;
     background-color: #d3d3d3;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 header {
     display: flex;
@@ -142,7 +144,7 @@ p {
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-    font-size: 18px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -452,7 +454,7 @@ input:checked + .slider::before {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-image: url('./asset/icon/icons8-marca-de-seleção-emoji-96.png');
+  background-image: url('../asset/icon/icons8-marca-de-seleção-emoji-96.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -480,6 +482,46 @@ input:checked + .slider::before {
 
 .animacao_saida {
     animation: removerTarefa 0.4s forwards;
+}
+
+.footer{
+    background:#ffffff;
+    width: 1280px;
+    color:#071022;
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+h3 {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    justify-content: center;
+}
+
+.footer-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-copy{
+    text-align:center;
+    margin-top:20px;
+    font-size:14px;
+    opacity:0.7;
 }
 
 @keyframes alertaIniciado {

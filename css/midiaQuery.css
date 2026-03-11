@@ -51,7 +51,7 @@
     }
 
     p {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .textos_do_input {
@@ -94,6 +94,9 @@
         height: 22px;
     }
 
+    .footer {
+        width: 1024px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -190,6 +193,9 @@
         height: 20px;
     }
 
+    .footer {
+        width: 768px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -251,7 +257,7 @@
     }
 
     p {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .textos_do_input {
@@ -340,6 +346,9 @@
         height: 19px;
     }
 
+    .footer {
+        width: 600px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -413,7 +422,7 @@
     }
 
     p {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .textos_do_input {
@@ -517,5 +526,9 @@
     .lixeira {
         width: 20px;
         height: 20px;
+    }
+    .footer {
+        width: 425px;
+        padding-block: 10px;
     }
 }
