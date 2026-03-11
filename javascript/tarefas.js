@@ -75,14 +75,17 @@ ul.addEventListener('click', (evento) => {
         function salvarEdicao() {
             const novoTexto = inputDeEdicao.value.trim() || textoAntigo;
 
-            // Atualiza o array
-            tarefas = tarefas.map(tarefa =>
-                tarefa.texto === textoAntigo ? { ...tarefa, texto: novoTexto } : tarefa
-            );
+            const li = inputDeEdicao.closest('li');
+            const id = Number(li.dataset.id);
 
+            const tarefa = tarefas.find(tarefa => tarefa.id === id);
+
+            if (tarefa) {
+                tarefa.texto = novoTexto;
+            }
+            
             salvarTarefas();
 
-            // Cria novamente o <p> com o novo texto
             const novoP = document.createElement('p');
             novoP.textContent = novoTexto;
             novoP.classList.add('texto');
@@ -126,4 +129,18 @@ ul.addEventListener('click', (evento) => {
     if (!botaoPlay) return;
 
     tocar(botaoPlay);
+});
+
+ul.addEventListener('change', (evento) => {
+    if (!evento.target.classList.contains('checkbox')) return;
+
+    const li = evento.target.closest('li');
+    const id = Number(li.dataset.id);
+
+    const tarefa = tarefas.find(tarefa => tarefa.id === id);
+
+    if (tarefa) {
+        tarefa.concluida = evento.target.checked;
+        salvarTarefas();
+    }
 });
