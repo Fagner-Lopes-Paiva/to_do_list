@@ -15,10 +15,10 @@ export function listarTarefa(id, texto, horaInicial, horaFinal) {
                     <span class="checkmark"></span>
                 </label>
                 <div  class="conteiner_texto">
-                    <p class="texto" >${texto}</p>
+                    <p class="texto" ></p>
                     <div class="conteiner_hora" >
-                        <p class="inicio_fim" >Inicio: <span class="hora_inicial">${horaInicial || ''}</span></p>
-                        <p class="inicio_fim" >Fim: <span class="hora_final">${horaFinal || ''}</span></p>
+                        <p class="inicio_fim" >Inicio: <span class="hora_inicial"></span></p>
+                        <p class="inicio_fim" >Fim: <span class="hora_final"></span></p>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,13 @@ export function listarTarefa(id, texto, horaInicial, horaFinal) {
             </div>
         </div>
     `;
+    
+    li.querySelector('.texto').textContent = texto;
+    li.querySelector('.hora_inicial').textContent = horaInicial || '';
+    li.querySelector('.hora_final').textContent = horaFinal || '';
+    
     ul.appendChild(li);
+    
     li.classList.add('item_lista');
     li.classList.add('alarme_parado');
     li.classList.add('animacao_entrada');
