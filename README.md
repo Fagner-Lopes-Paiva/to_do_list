@@ -1,51 +1,302 @@
-# TO-DO List Interativa (Lista de Tarefas)
-![foto_do_to-do](./asset/foto_do_site.png)
+# 📝 To-Do List com Alarme
+![to-do-list](asset/foto_do_site.png)
 ## 📖 Visão Geral
 
-Este é um projeto de uma Lista de Tarefas (TO-DO List) interativa criada com HTML, CSS e JavaScript puro. A aplicação permite que o usuário adicione, remova e filtre tarefas, além de contar com um sistema de alarmes sonoros para o início e fim de cada atividade, transformando-a em uma ferramenta de gerenciamento de tempo.
+Este é um projeto de **Lista de Tarefas (To-Do List) interativa** desenvolvido utilizando **HTML, CSS e JavaScript puro (Vanilla JavaScript)**.
 
-O projeto foi desenvolvido para demonstrar a manipulação dinâmica do DOM, gerenciamento de eventos e controle de estado com JavaScript.
+A aplicação permite que o usuário **adicione, edite, conclua e remova tarefas**, além de definir **horários de início e fim para cada atividade**, com um **sistema de alarmes sonoros e notificações do navegador**.
 
-## ✨ Funcionalidades Principais
+O objetivo do projeto é demonstrar na prática conceitos importantes do **desenvolvimento Front-End moderno**, como:
 
-* **Adicionar Tarefas**: O usuário pode digitar uma nova tarefa no campo de input e adicioná-la à lista com um clique.
-* **Remover Tarefas**: Cada tarefa possui um botão de lixeira que a remove da lista.
-* **Filtrar Tarefas**: É possível filtrar a visualização entre "Todas", "Pendentes" e "Concluídas" com base no status do checkbox de cada tarefa.
-* **Relógio em Tempo Real**: Um relógio no cabeçalho exibe a data e a hora atuais, atualizando a cada segundo.
-* **Alarmes de Início e Fim**:
-    * Cada tarefa possui campos de tempo para definir um horário de início e um de fim.
-    * Um alarme sonoro é disparado no minuto exato do início e do fim da tarefa.
-    * O fundo da tarefa fica **verde** no minuto do início e **vermelho** no minuto do fim.
-* **Validação de Horário**: O campo de horário de fim não permite selecionar um tempo que seja anterior ao horário de início definido, evitando erros do usuário.
-* **Controle de Estado do Alarme**: A lógica garante que o alarme de cada evento (início/fim) toque apenas uma vez por minuto, adicionando uma classe de "marcador" para controlar o estado.
+* Manipulação dinâmica do DOM
+* Modularização de código JavaScript
+* Gerenciamento de estado
+* Uso de armazenamento local
+* Controle de eventos
+* Segurança básica contra XSS
 
-## 🛠️ Tecnologias Utilizadas
+A aplicação funciona como uma pequena ferramenta de **gerenciamento de tempo**, ajudando o usuário a organizar suas tarefas diárias.
 
-* **HTML5**: Estrutura principal da página.
-* **CSS3**: Estilização dos componentes, utilizando Flexbox para o layout.
-* **JavaScript (ES6+)**: Toda a lógica de interatividade, incluindo:
-    * Manipulação do DOM (criação e remoção de elementos).
-    * Delegação de Eventos (`addEventListener` na `<ul>`).
-    * Funções de tempo (`setInterval` para o relógio e para a verificação dos alarmes).
-    * Manipulação de atributos (`setAttribute` para a validação de tempo).
-    * Controle de classes (`classList.add`, `classList.remove`, `classList.contains`).
+---
 
-## ⚙️ Como Funciona a Lógica dos Alarmes
+# ✨ Funcionalidades Principais
 
-O coração do sistema de alarmes é uma função `setInterval` que roda a cada segundo:
+### ➕ Adicionar Tarefas
 
-1.  **"Ronda" Completa**: A cada segundo, o script seleciona todas as tarefas (`.item_lista`) presentes na página.
-2.  **Verificação Individual**: Usando um loop `forEach`, ele "visita" cada tarefa individualmente.
-3.  **Coleta de Dados**: Para cada tarefa, ele lê os valores dos inputs de início e fim e pega a hora atual do sistema.
-4.  **Comparação e Ação**:
-    * Ele compara a hora atual com a hora de início. Se a hora for a mesma e o alarme de início ainda não tiver tocado (verificado por uma classe "marcador"), ele toca o som, pinta o fundo de verde e adiciona a classe "marcador".
-    * Caso contrário, ele compara a hora atual com a hora de fim. Se a hora for a mesma e o alarme de fim não tiver tocado, ele toca o som, pinta o fundo de vermelho e adiciona a sua própria classe "marcador".
-    * Se não for nem hora de início nem de fim, ele garante que o fundo da tarefa fique branco e remove as classes "marcador".
+O usuário pode digitar uma tarefa e adicioná-la à lista.
 
-Essa abordagem garante que cada tarefa seja independente e que os alarmes não entrem em conflito.
+Cada tarefa criada possui:
 
-## 🚀 Como Executar
+* Texto da tarefa
+* Horário de início
+* Horário de término
+* Botão de alarme
+* Botão de exclusão
+* Checkbox de conclusão
 
-1.  Clone este repositório.
-2.  Abra o arquivo `index.html` em qualquer navegador web moderno.
-3.  Adicione tarefas, defina horários e veja a mágica acontecer!
+---
+
+### ✏️ Editar Tarefas
+
+O texto da tarefa pode ser editado diretamente clicando sobre ele.
+
+A edição é feita de forma dinâmica utilizando **substituição de elementos do DOM** (`<p>` → `<input>`).
+
+---
+
+### 🗑️ Remover Tarefas
+
+Cada tarefa possui um botão de lixeira que remove a tarefa da lista com uma **animação de saída**.
+
+---
+
+### ✔️ Marcar Tarefa como Concluída
+
+Cada tarefa possui um **checkbox personalizado** que permite marcar a tarefa como concluída.
+
+O estado da tarefa é salvo automaticamente.
+
+---
+
+### ⏰ Alarmes de Início e Fim
+
+Cada tarefa pode ter:
+
+* Horário de **início**
+* Horário de **término**
+
+Quando o horário é atingido:
+
+* Um **alarme sonoro é tocado**
+* Uma **notificação do navegador é exibida**
+* A tarefa muda de cor para indicar o evento
+
+Cores utilizadas:
+
+* 🟢 Verde → início da tarefa
+* 🔴 Vermelho → fim da tarefa
+
+---
+
+### 🔔 Notificações do Navegador
+
+A aplicação utiliza a **API de Notificações do navegador**, permitindo avisos mesmo quando a aba não está ativa.
+
+---
+
+### 💾 Salvamento Automático
+
+Todas as tarefas são salvas no navegador utilizando:
+
+**Local Storage**
+
+Assim, mesmo ao recarregar a página, as tarefas continuam disponíveis.
+
+---
+
+### 🛡️ Proteção contra XSS
+
+O projeto evita vulnerabilidades do tipo **Cross-Site Scripting (XSS)** utilizando:
+
+* `textContent` para inserir textos do usuário
+* Evitando inserir dados diretamente com `innerHTML`
+
+Isso impede a execução de scripts maliciosos.
+
+---
+
+# 🛠️ Tecnologias Utilizadas
+
+### Estrutura
+
+* **HTML5**
+
+### Estilização
+
+* **CSS3**
+* **Flexbox**
+* **Media Queries (Responsividade)**
+* Animações CSS
+
+### Lógica da Aplicação
+
+* **JavaScript (ES6+)**
+
+Principais conceitos utilizados:
+
+* Manipulação do DOM
+* `createElement`
+* `querySelector`
+* `appendChild`
+* `replaceWith`
+* `dataset`
+* `classList`
+* `setAttribute`
+
+---
+
+# 📦 Recursos do JavaScript Utilizados
+
+### Modularização de Código
+
+Uso de **JavaScript Modules (ES Modules)**:
+
+```
+import { tarefas } from './storage.js'
+export function listarTarefa()
+```
+
+Separando responsabilidades em arquivos como:
+
+* `tarefas.js`
+* `alarme.js`
+* `storage.js`
+
+---
+
+### Gerenciamento de Estado
+
+As tarefas são armazenadas em um **array global de estado**:
+
+```
+tarefas[]
+```
+
+Esse estado é atualizado sempre que:
+
+* uma tarefa é criada
+* uma tarefa é editada
+* uma tarefa é removida
+* uma tarefa é concluída
+
+---
+
+### Armazenamento Local
+
+Uso da API:
+
+```
+localStorage
+```
+
+Para persistir os dados entre recarregamentos da página.
+
+---
+
+### Delegação de Eventos
+
+Em vez de adicionar eventos em cada elemento, os eventos são controlados diretamente na `<ul>`:
+
+```
+ul.addEventListener("click", ...)
+ul.addEventListener("change", ...)
+ul.addEventListener("input", ...)
+```
+
+Isso melhora **performance e organização do código**.
+
+---
+
+### Controle de Tempo
+
+A aplicação utiliza:
+
+```
+setInterval()
+```
+
+Para verificar constantemente se o horário atual corresponde ao horário das tarefas.
+
+---
+
+### APIs do Navegador
+
+A aplicação utiliza:
+
+* **Notification API**
+* **Audio API**
+* **Local Storage API**
+
+---
+
+# ⚙️ Como Funciona a Lógica dos Alarmes
+
+O sistema de alarmes utiliza um **loop contínuo com `setInterval`** que roda a cada segundo.
+
+### Etapas do processo
+
+1️⃣ O sistema pega a **hora atual do computador do usuário**
+
+2️⃣ Percorre todas as tarefas armazenadas
+
+3️⃣ Para cada tarefa ele verifica:
+
+* horário de início
+* horário de fim
+
+4️⃣ Se o horário atual for igual ao horário da tarefa:
+
+* toca o alarme
+* envia notificação
+* altera o estilo visual da tarefa
+
+---
+
+### Controle de Execução
+
+Cada tarefa possui atributos `dataset` para evitar que o alarme toque várias vezes no mesmo minuto:
+
+```
+data-inicio-tocado
+data-fim-tocado
+```
+
+Esses atributos funcionam como **marcadores de estado**.
+
+---
+
+# 🚀 Como Executar o Projeto
+
+1️⃣ Clone este repositório
+
+```
+git clone URL_DO_REPOSITORIO
+```
+
+2️⃣ Abra a pasta do projeto
+
+3️⃣ Abra o arquivo:
+
+```
+index.html
+```
+
+em qualquer navegador moderno.
+
+---
+
+# 📚 Conceitos de Front-End Demonstrados
+
+Este projeto demonstra diversos conceitos importantes do desenvolvimento front-end:
+
+* Manipulação avançada do DOM
+* Organização de código JavaScript
+* Modularização
+* Controle de estado
+* Persistência de dados
+* Eventos do navegador
+* Segurança básica
+* Programação assíncrona com timers
+
+---
+
+# 👨‍💻 Autor
+
+**Fagner Lopes Paiva**
+
+Desenvolvedor Front-End em aprendizado focado em:
+
+* HTML
+* CSS
+* JavaScript
+* Desenvolvimento Web Moderno

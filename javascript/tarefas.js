@@ -34,10 +34,8 @@ export function listarTarefa(id, texto, horaInicial, horaFinal) {
     li.querySelector('.hora_final').textContent = horaFinal || '';
     
     ul.appendChild(li);
-    
-    li.classList.add('item_lista');
-    li.classList.add('alarme_parado');
-    li.classList.add('animacao_entrada');
+
+    li.classList.add('item_lista', 'alarme_parado', 'animacao_entrada');
     li.setAttribute('data-inicio-tocado', 'false');
     li.setAttribute('data-fim-tocado', 'false');
     li.dataset.id = id;
