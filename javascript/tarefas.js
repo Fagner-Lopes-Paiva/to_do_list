@@ -98,6 +98,7 @@ ul.addEventListener('click', (evento) => {
         // Salva ao apertar Enter
         inputDeEdicao.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') salvarEdicao();
+            if (e.key === 'Escape') inputDeEdicao.replaceWith(p);
         });
     }
     const elementoClicado = evento.target;
